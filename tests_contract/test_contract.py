@@ -3,7 +3,6 @@ from fixture.variables import Profinity
 from contract_lib import Contract, connection
 
 
-@connection
 def test_of_add_new_valid_contact(app):
     """
     Validation of add correct new contact with full data
@@ -21,10 +20,19 @@ def test_of_add_new_valid_contact(app):
     app.contact.delete_contract()
 
 
-@connection
 def test_of_add_new_valid_contact_name_only(app):
     """
     Validation of add correct new contact with only full name
+    """
+
+    app.contact.create((Contract(first_name=Profinity.correct_data, last_name=Profinity.correct_data,
+                        middle_name=Profinity.correct_data, nickname=Profinity.correct_data)))
+    app.contact.delete_contract()
+
+
+def test_of_delete_contract(app):
+    """
+    Validation of  delete contract
     """
 
     app.contact.create((Contract(first_name=Profinity.correct_data, last_name=Profinity.correct_data,

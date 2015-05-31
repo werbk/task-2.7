@@ -47,9 +47,6 @@ class ContactBase():
     def create(self, Contract):
         wd = self.app.wd
         wd.find_element_by_link_text("add new").click()
-        wd.find_element_by_name("email").click()
-        wd.find_element_by_name("email").clear()
-        wd.find_element_by_name("email").send_keys()
 
         if Contract.first_name:
             wd.find_element_by_name("firstname").click()
